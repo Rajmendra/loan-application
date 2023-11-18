@@ -1,0 +1,71 @@
+/* frontend/src/App.css */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80%;
+}
+
+.loan-application-form {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px;
+  max-width: 400px;
+}
+
+.business-details-form {
+  margin-bottom: 20px;
+}
+
+.business-details-form input,
+.business-details-form select {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+.loan-application-form button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.loan-application-form button:hover {
+  background-color: #45a049;
+}
+
+.decision-outcome {
+  text-align: center;
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+}
+
+
+.decision-outcome-green {
+  background-color: #e6f7ea;
+  color: #4caf50;
+}
+
+.decision-outcome-red {
+  background-color: #fcd9d9;
+  color: #f44336;
+}
