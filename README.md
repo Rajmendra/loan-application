@@ -20,7 +20,7 @@ This project is a simple business loan application system consisting of a fronte
     /backend: Contains the backend server code.
     /frontend: Contains the frontend React application.
     docker-compose.yml: Docker Compose configuration file.
-
+```plaintext
 Getting Started
 Prerequisites
 
