@@ -35,7 +35,7 @@ const applyDecisionRules = (businessDetails) => {
   // };
   // return decisionEngineAPI(decisionEnginParams);
 
-  return "Approved";
+  return "We will let you know after the verification";
   };
   
   module.exports = { applyDecisionRules };
