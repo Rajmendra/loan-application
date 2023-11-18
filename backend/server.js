@@ -11,12 +11,6 @@ app.use(cors());
 app.use(express.json());
 app.use(bodyParser.json());
 
-
-app.get('/apply-loan', (req, res) => {
-  
-  res.json({"me":"asdsdds"});
-});
-
 app.post('/apply-loan', (req, res) => {
   const { businessDetails, loanAmount, accountingProvider } = req.body;
 

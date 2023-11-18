@@ -1,6 +1,7 @@
 import React from 'react';
 
 const BusinessDetailsForm = ({ formData, setFormData }) => {
+
   return (
     <div className='business-details-form'>
       <h2>Business Details</h2>
@@ -8,9 +9,7 @@ const BusinessDetailsForm = ({ formData, setFormData }) => {
       <input
         type="text"
         required
-        validationErrors={{
-          isDefaultRequiredValue: 'Field is required'
-        }}
+        name="business_name"
         placeholder="Business Name"
         onChange={(e) => setFormData({ ...formData, businessDetails: { ...formData.businessDetails, name: e.target.value } })}
       />
@@ -23,6 +22,7 @@ const BusinessDetailsForm = ({ formData, setFormData }) => {
       />
       <br/>
       <select
+        required
         onChange={(e) => setFormData({ ...formData, accountingProvider: e.target.value })}
       >
         <option value="">Select Accounting Provider</option>

@@ -3,6 +3,9 @@ import React, { useState } from 'react';
 import './App.css';
 import LoanApplicationForm from './components/LoanApplicationForm';
 import DecisionOutcome from './components/DecisionOutcome';
+import apiService from './services/apiService';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const [formData, setFormData] = useState({
@@ -11,31 +14,38 @@ function App() {
     accountingProvider: '',
   });
   const [decisionOutcome, setDecisionOutcome] = useState(null);
+  const [isLoading, setLoading] = useState(false);
 
   const submitApplication = async () => {
+    setLoading(true);
     try {
-      // Make a POST request to the backend
-      const response = await fetch('http://localhost:3001/apply-loan', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
 
-      const result = await response.json();
-
-      // Set the decision outcome in the state
+      const result = await apiService.applyLoan(formData);
       setDecisionOutcome(result);
+      setLoading(false);
+
     } catch (error) {
-      console.error('Error submitting application:', error);
+
+      console.log('error', error)
+      setLoading(false);
+      toast.error(`Error submitting application`, {
+        position: toast.POSITION.TOP_CENTER,
+        autoClose: 5000,
+      });
+      
     }
   };
 
   return (
     <div className="app-container">
-      <LoanApplicationForm formData={formData} setFormData={setFormData} submitApplication={submitApplication} />
+      <LoanApplicationForm 
+        formData={formData} 
+        setFormData={setFormData} 
+        submitApplication={submitApplication}
+        isLoading={isLoading}
+         />
         {decisionOutcome && <DecisionOutcome outcome={decisionOutcome} />}
+        <ToastContainer />
     </div>
   );
 }

@@ -1,26 +1,19 @@
 import React from 'react';
 import BusinessDetailsForm from './BusinessDetailsForm';
-import { FormProvider, useForm } from 'react-hook-form'
+import { useForm } from "react-hook-form";
 
-const LoanApplicationForm = ({ formData, setFormData, submitApplication }) => {
-  const methods = useForm()
-  
+const LoanApplicationForm = ({ isLoading, formData, setFormData, submitApplication }) => {
+  const {
+    handleSubmit
+  } = useForm();
+
   return (
     <div className="loan-application-form">
       <h1>Loan Application</h1>
-      <FormProvider {...methods}>
-      <form
-        onSubmit={e => e.preventDefault()}
-        noValidate
-        autoComplete="off" >
+      <form onSubmit={handleSubmit(submitApplication)}>
         <BusinessDetailsForm formData={formData} setFormData={setFormData} />
-        <button type="button" onClick={()=> {
-          methods.reset()
-          submitApplication();
-        }}>Submit Application</button>
-      
+        <button disabled={isLoading} type="submit">{isLoading ? 'Validating...' : 'Submit Application'}</button>
         </form>
-    </FormProvider>
     </div>
   );
 };
