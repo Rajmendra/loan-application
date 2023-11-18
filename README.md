@@ -7,6 +7,8 @@ This project is a simple business loan application system consisting of a fronte
 ```plaintext
 /project-root
   /backend
+    plugins
+    utils
     Dockerfile
     server.js
     package.json
@@ -16,10 +18,7 @@ This project is a simple business loan application system consisting of a fronte
     src
     package.json
   docker-compose.yml
-
-    /backend: Contains the backend server code.
-    /frontend: Contains the frontend React application.
-    docker-compose.yml: Docker Compose configuration file.
+```
 Getting Started
 Prerequisites
 
@@ -30,16 +29,12 @@ Make sure you have Docker and Docker Compose installed on your machine.
 
 Running the Application
 
-    Clone the repository:
+Clone the repository:
 
-    bash
-
-git clone https://github.com/Rajmendra/loan-application.git
-cd loan-application
+    git clone https://github.com/Rajmendra/loan-application.git
+    cd loan-application
 
 Build and run the Docker containers:
-
-bash
 
     docker-compose up
 
@@ -74,6 +69,5 @@ Rules and Assumptions
 Author
 
 Rajmendra Rawat
-License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
