@@ -1,4 +1,3 @@
-// frontend/src/App.js
 import React, { useState } from 'react';
 import './App.css';
 import LoanApplicationForm from './components/LoanApplicationForm';
@@ -16,36 +15,37 @@ function App() {
   const [decisionOutcome, setDecisionOutcome] = useState(null);
   const [isLoading, setLoading] = useState(false);
 
+  const notifyError = (message) => {
+    toast.error(message, {
+      position: toast.POSITION.TOP_CENTER,
+      autoClose: 5000,
+    });
+  };
+
   const submitApplication = async () => {
     setLoading(true);
-    try {
 
+    try {
       const result = await apiService.applyLoan(formData);
       setDecisionOutcome(result);
-      setLoading(false);
-
     } catch (error) {
-
-      console.log('error', error)
+      console.error('Error submitting application:', error);
+      notifyError('Error submitting application');
+    } finally {
       setLoading(false);
-      toast.error(`Error submitting application`, {
-        position: toast.POSITION.TOP_CENTER,
-        autoClose: 5000,
-      });
-      
     }
   };
 
   return (
     <div className="app-container">
-      <LoanApplicationForm 
-        formData={formData} 
-        setFormData={setFormData} 
+      <LoanApplicationForm
+        formData={formData}
+        setFormData={setFormData}
         submitApplication={submitApplication}
         isLoading={isLoading}
-         />
-        {decisionOutcome && <DecisionOutcome outcome={decisionOutcome} />}
-        <ToastContainer />
+      />
+      {decisionOutcome && <DecisionOutcome outcome={decisionOutcome} />}
+      <ToastContainer />
     </div>
   );
 }

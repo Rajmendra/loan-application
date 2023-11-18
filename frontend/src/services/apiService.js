@@ -1,4 +1,3 @@
-// frontend/src/services/apiService.js
 import { APPLY_LOAN_URL } from '../constants/apiUrls';
 
 const applyLoan = async (formData) => {

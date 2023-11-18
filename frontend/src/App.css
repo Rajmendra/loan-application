@@ -60,12 +60,12 @@ body {
 }
 
 
-.decision-outcome-green {
+.approved {
   background-color: #e6f7ea;
   color: #4caf50;
 }
 
-.decision-outcome-red {
+.rejected {
   background-color: #fcd9d9;
   color: #f44336;
 }
